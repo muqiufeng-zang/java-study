@@ -1,7 +1,6 @@
 package com.znt.demo;
 
 import com.znt.demo.calobject.ClassIntrospector;
-import com.znt.demo.calobject.ObjectInfo;
 
 /**
  * @author  znt
@@ -32,9 +31,11 @@ public class Test {
         System.out.println("String对象内存大小比较：");
         try {
             final ClassIntrospector ci = new ClassIntrospector();
+            char[] ch={};
             String str="";
             StringBuilder strbuilder =new StringBuilder();
             StringBuffer strbuffer =new StringBuffer();
+            System.out.println("ch:" + ci.introspect(ch).getDeepSize());
             System.out.println("String:" + ci.introspect("").getDeepSize());
             System.out.println("String str:" + ci.introspect(str).getDeepSize());
             System.out.println("StringBuilder:" + ci.introspect(strbuilder).getDeepSize());
