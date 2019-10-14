@@ -1,6 +1,6 @@
-package com.znt.demo;
+package com.study.string.zntstring;
 
-import com.znt.demo.calobject.ClassIntrospector;
+import com.study.string.zntstring.calobject.ClassIntrospector;
 
 /**
  * @author  znt

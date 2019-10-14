@@ -1,4 +1,4 @@
-package com.znt.demo;
+package com.study.string.zntstring;
 
 /**
  * @author  znt
