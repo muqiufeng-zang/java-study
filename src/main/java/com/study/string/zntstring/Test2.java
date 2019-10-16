@@ -52,6 +52,7 @@ public class Test2 {
          */
 
         StringSplitTest test = new StringSplitTest();
+        test.getSize();
         test.splitTest();
         test.stringTokenizerTest();
         test.subStringTest();

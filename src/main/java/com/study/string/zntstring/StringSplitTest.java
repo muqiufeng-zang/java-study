@@ -1,5 +1,7 @@
 package com.study.string.zntstring;
 
+import com.study.string.zntstring.calobject.ClassIntrospector;
+
 import java.util.StringTokenizer;
 
 /**
@@ -10,7 +12,7 @@ import java.util.StringTokenizer;
 public class StringSplitTest {
 
     private StringBuffer buffer = new StringBuffer();
-    private static int MAX_NUM=10000;
+    private static int MAX_NUM=10000000;
     private String  append = "abcd";
     private String regex=",,,&&&";
 
@@ -21,6 +23,14 @@ public class StringSplitTest {
         }
     }
 
+    public void getSize(){
+        try {
+            final ClassIntrospector ci = new ClassIntrospector();
+            System.out.println("查找字符串的内存大小为："+ci.introspect(buffer.toString()).getDeepSize()/1024+"KB");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public void splitTest(){
         long startTime = System.currentTimeMillis();
