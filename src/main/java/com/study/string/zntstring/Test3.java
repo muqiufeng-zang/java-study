@@ -1,6 +1,7 @@
 package com.study.string.zntstring;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
 /**
  * @author  znt
@@ -45,8 +46,11 @@ public class Test3 {
         System.out.println("转码前，输入Java系统属性如下：");
         System.out.println("user.country: "+System.getProperty("user.country"));
         System.out.println("user.language: "+System.getProperty("user.language"));
+        //sun.jnu.encoding 影响文件名的创建
         System.out.println("sun.jnu.encoding: "+System.getProperty("sun.jnu.encoding"));
+        //file.encoding 则影响到文件内容
         System.out.println("file.encoding: "+System.getProperty("file.encoding"));
+        System.out.println("charset.defaultCharset："+Charset.defaultCharset());
 
         System.out.println("转码之后的输出： ");
         // 使用String的有参构造方法
