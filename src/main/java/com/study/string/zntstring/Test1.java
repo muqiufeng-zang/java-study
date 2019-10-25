@@ -11,7 +11,7 @@ import com.study.string.zntstring.calobject.ClassIntrospector;
  * @Date 2019/10/12
  */
 
-public class Test {
+public class Test1 {
 
     public static void main(String[] args){
 
