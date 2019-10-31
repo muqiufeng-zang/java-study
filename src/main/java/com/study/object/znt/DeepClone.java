@@ -11,8 +11,15 @@ public class DeepClone implements Cloneable {
     private int c;
     private int[] d;
 
+    public DeepClone(){}
+
+    public DeepClone(int c,int init){
+        this.c = c;
+        this.d = new int[]{init};
+    }
+
     @Override
-    public Object clone(){
+    public DeepClone clone(){
         DeepClone sc = null;
         try
         {

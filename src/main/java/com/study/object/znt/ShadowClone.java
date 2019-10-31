@@ -12,8 +12,15 @@ public class ShadowClone implements Cloneable {
     private int a;
     private int[] b;
 
+    public ShadowClone(){}
+
+    public ShadowClone(int a,int init){
+        this.a=a;
+        this.b=new int[]{init};
+    }
+
     @Override
-    public Object clone(){
+    public ShadowClone clone(){
         ShadowClone sc = null;
         try{
             sc = (ShadowClone)super.clone();

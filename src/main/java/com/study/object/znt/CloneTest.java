@@ -1,10 +1,6 @@
 package com.study.object.znt;
 
 
-import com.study.object.Bean;
-
-import java.net.Socket;
-
 /**
  * @author  znt
  * @description  Object.clone
@@ -25,7 +21,7 @@ public class CloneTest {
         c1.setB(new int[]{1000});
 
         System.out.println("克隆前c1:  a="+c1.getA()+" b[0]="+c1.getB()[0]);
-        ShadowClone c2 = (ShadowClone) c1.clone();
+        ShadowClone c2 = c1.clone();
         c2.setA(50) ;
         int []b = c2.getB() ;
         b[0]=5 ;
@@ -42,7 +38,7 @@ public class CloneTest {
         d1.setD(new int[]{1000});
 
         System.out.println("克隆前d1:  c="+d1.getC()+" d[0]="+d1.getD()[0]);
-        DeepClone d2 = (DeepClone) d1.clone();
+        DeepClone d2 = d1.clone();
         d2.setC(50) ;
         int []d = d2.getD() ;
         d[0]=5 ;
@@ -52,37 +48,69 @@ public class CloneTest {
         System.out.println();
 
         /**
-         * 深拷贝、浅拷贝和new 效率对比
+         * 1.原型设计模式的思路：采用clone方式实现
+         * 2.clone应用场景：
+         * （1）对象之间相同或相似，即只是个别的几个属性不同的时候
+         * （2）对象的创建过程比较麻烦，但复制比较简单的时候
+         * 3.clone和new方式的效率上各有利弊吧，视需要复制的Object复制而定。
+         * 4.个人觉得采用clone去实现，效率恐怕不是第一位考虑的，重要的是方便
          */
         long startTime;
         long endTime;
 
+        System.out.println("=======使用无参构造函数======");
         startTime = System.currentTimeMillis();
         for (int i = 0; i < COUNT; i++) {
             ShadowClone shadow = new ShadowClone();
+            shadow.setB(new int[]{1000});
         }
         endTime = System.currentTimeMillis();
-        System.out.println("new  = " + (endTime - startTime));
-
+        System.out.println("new1  = " + (endTime - startTime));
 
         startTime = System.currentTimeMillis();
         ShadowClone shadow = new ShadowClone();
+        shadow.setB(new int[]{1000});
         for (int i = 0; i < COUNT; i++) {
-            ShadowClone shadow2 = (ShadowClone)shadow.clone();
+            ShadowClone shadow2 = shadow.clone();
         }
         endTime = System.currentTimeMillis();
-        System.out.println("shadowClone = " + (endTime - startTime));
+        System.out.println("shadowClone1 = " + (endTime - startTime));
 
         startTime = System.currentTimeMillis();
         DeepClone deep = new DeepClone();
-
+        deep.setD(new int[]{1000});
         for (int i = 0; i < COUNT; i++) {
-            DeepClone deep2 = (DeepClone)deep.clone();
+            DeepClone deep2 = deep.clone();
         }
         endTime = System.currentTimeMillis();
-        System.out.println("deepClone = " + (endTime - startTime));
+        System.out.println("deepClone1 = " + (endTime - startTime));
 
-        Socket s = new Socket();
+
+        System.out.println("=======使用有参构造函数======");
+        int[] ch=new int[]{1000};
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < COUNT; i++) {
+            ShadowClone shadow2 = new ShadowClone(50,1000);
+        }
+        endTime = System.currentTimeMillis();
+        System.out.println("new2  = " + (endTime - startTime));
+
+
+        startTime = System.currentTimeMillis();
+        ShadowClone shadow2 = new ShadowClone(50,1000);
+        for (int i = 0; i < COUNT; i++) {
+            ShadowClone shadow3 = shadow2.clone();
+        }
+        endTime = System.currentTimeMillis();
+        System.out.println("shadowClone2 = " + (endTime - startTime));
+
+        startTime = System.currentTimeMillis();
+        DeepClone deep2 = new DeepClone(50,1000);
+        for (int i = 0; i < COUNT; i++) {
+            DeepClone deep3 = deep2.clone();
+        }
+        endTime = System.currentTimeMillis();
+        System.out.println("deepClone2 = " + (endTime - startTime));
 
 
     }
