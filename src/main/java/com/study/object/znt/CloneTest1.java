@@ -7,7 +7,7 @@ package com.study.object.znt;
  * @Date 2019/10/31
  */
 
-public class CloneTest {
+public class CloneTest1 {
 
     private static final int COUNT = 10000 * 1000;
 
