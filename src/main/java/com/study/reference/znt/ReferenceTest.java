@@ -1,4 +1,4 @@
-package com.study.collection.znt;
+package com.study.reference.znt;
 
 import java.util.ArrayList;
 import java.util.List;
