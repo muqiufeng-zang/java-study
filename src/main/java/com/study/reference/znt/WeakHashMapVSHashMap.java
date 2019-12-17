@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @author znt
- * @description 虚引用
+ * @description 弱引用
  * 强引用：不进行垃圾回收，如Object obj = new Object
  * 软引用：有用非必须对象，在内存溢出前进行回收，SoftReference
  * 弱引用：非必须对象，只能生存到下次垃圾收集时，WeakReference

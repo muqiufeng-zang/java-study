@@ -34,7 +34,7 @@ public class SoftReferenceTest {
         }
         System.out.println(obj);
         if (obj != null) {
-            System.out.println("Object for SoftReference is " + obj.get());
+            System.out.println("Object for SoftReference is " + obj);
         }
         //只有当GC回收时才会输出
         System.out.println("SoftReferenceTest's finalize called");
@@ -68,7 +68,6 @@ public class SoftReferenceTest {
         }
         System.out.println("After new List: Soft Get= " + softRef.get());
         System.out.println(softReferenceTest);
-
 
     }
 }
